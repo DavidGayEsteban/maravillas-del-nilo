@@ -31,3 +31,6 @@ python3 build.py         # genera egipto.html
 - Fotos de las excursiones opcionales (globo, poblado nubio, Noche Cairota) y del JW Marriott
 ## Versión web
 La guía está publicada en https://davidgayesteban.github.io/maravillas-del-nilo/ (`index.html`, generado por `build.py`).
+
+## Fotos
+Las fotos de `fotos_web/` proceden de Wikimedia Commons (licencias CC BY / CC BY-SA / CC0) y de la web del crucero Kahila (nilecruisen.com); el resto son aportadas por los viajeros.

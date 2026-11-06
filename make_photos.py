@@ -4,8 +4,8 @@ import os, base64, io
 from PIL import Image
 
 SRC = "/mnt/user-data/uploads"
-MAX_W = 1100
-JPEG_Q = 72
+MAX_W = 960
+JPEG_Q = 62
 
 def optimize(path, max_w=MAX_W, quality=JPEG_Q):
     im = Image.open(path).convert("RGB")
@@ -44,6 +44,7 @@ GROUPS = {
     "aeropuerto_cairo": ["25_aeropuerto_del_cairo.jpeg"],
 }
 
+WEB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fotos_web")   # capturas de Wikimedia Commons (CC) y webs del barco
 PHOTOS, total = {}, 0
 for key, files in GROUPS.items():
     uris = []
@@ -53,6 +54,9 @@ for key, files in GROUPS.items():
             print("MISSING:", p); continue
         uri, sz = optimize(p); uris.append(uri); total += sz
     PHOTOS[key] = uris
+for fn in sorted(os.listdir(WEB)):
+    if fn.endswith(".png"):
+        uri, sz = optimize(os.path.join(WEB, fn)); PHOTOS["w_" + fn[:-4]] = [uri]; total += sz
 
 print("TOTAL embebido:", round(total/1024/1024, 2), "MB")
 with open(os.path.join(os.path.dirname(__file__), "photos_data.py"), "w", encoding="utf-8") as f:
