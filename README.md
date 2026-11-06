@@ -25,9 +25,9 @@ python3 build.py         # genera egipto.html
 ```
 
 ## Pendiente de completar
-- Barco y hotel definitivos (nombre, dirección, teléfono)
-- Horario del vuelo Asuán → El Cairo
-- Guía local y seguro de viaje (compañía, póliza, teléfono de asistencia)
-
+- Hora del vuelo interno Asuán → El Cairo (11 nov)
+- Nombre y móvil del guía (se conoce el día 1)
+- Número de camarote del Kahila
+- Fotos de las excursiones opcionales (globo, poblado nubio, Noche Cairota) y del JW Marriott
 ## Versión web
 La guía está publicada en https://davidgayesteban.github.io/maravillas-del-nilo/ (`index.html`, generado por `build.py`).

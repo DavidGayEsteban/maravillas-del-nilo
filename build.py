@@ -32,7 +32,7 @@ def photo_block(photos, name, h=200):
     return main + f'<div class="stop-grid cols-{cols}">{grid}</div>'
 
 def render_stop(s):
-    tag = f'<span class="stop-tag">{s["tag"]}</span>' if s["tag"] else ""
+    tag = f'<span class="stop-tag {s["tag"]}">{s["tag"]}</span>' if s["tag"] else ""
     curio = f'<div class="stop-curio">{s["curio"]}</div>' if s["curio"] else ""
     mapa = f'<a class="pill map" href="{maps_url(s["mapq"])}" target="_blank" rel="noopener">📍 Google Maps</a>' if s["mapq"] else ""
     nearby = f'<div class="nearby"><b>Cerca:</b> {s["nearby"]}</div>' if s["nearby"] else ""
@@ -111,11 +111,12 @@ def sec_alojamiento():
     return f"""
     <div class="view" id="alojamiento"><div class="section-pad">
       <div class="section-title">Vuelos y alojamiento</div>
-      <div class="section-intro">Hoteles y barco «previstos o similares» según el presupuesto; se confirman antes de la salida. Esta sección se completará con los datos definitivos.</div>
-      {card("✈️ Vuelos", f'<div class="flights">{vuelos}</div><p class="muted">Localizador Dynamic Tours: <b>DTP157933</b> · 4 adultos · 2 habitaciones dobles</p>')}
-      {card("🚢 Crucero por el Nilo · 4 noches", "<p>Noches 1 a 4, Luxor → Asuán, pensión completa.</p><p><b>Motonave prevista (una de estas):</b> Blue Shadow · M/S Royal Viking · Concerto I · Radamis I · Zeina · Alexander The Great · M/S Concerto Plus.</p><p class='muted'>Pendiente: nombre definitivo del barco, camarotes, teléfono de recepción.</p><p class='muted'>Cómo funciona: los barcos de 5★ egipcias son hoteles flotantes de 3–4 cubiertas con restaurante, bar, piscina en la cubierta superior y 50–70 camarotes con ventana. Hay noche de gala egipcia (galabeya) y animación. Las bebidas se cargan a la habitación y se pagan al final.</p>", P["crucero_nilo"][0], "Por confirmar")}
-      {card("🏨 Hotel en El Cairo · 3 noches", "<p>Noches 5 a 7, alojamiento y desayuno.</p><p><b>Hotel previsto (uno de estos):</b> Conrad Cairo · Dusit Thani LakeView · Hilton Heliopolis · Hyatt Centric Cairo · Hyatt Regency Cairo West · Marriott Omar Khayyam · Sheraton Cairo · Steigenberger El Tahrir.</p><p class='muted'>Pendiente: hotel definitivo, dirección, teléfono y enlace a Google Maps.</p>", P["hoteles_cairo"][1], "Por confirmar")}
-      {card("💳 Coste y condiciones", "<p>Precio final para 4 personas: <b>6.140 €</b> (incluye rebaja de temporada, día completo Cairo + Saqqara, Abu Simbel en bus y Gran Museo Egipcio).</p><p class='muted'>No incluye: cuota de servicios/propinas generales (75 €/persona, en destino), visado (30 €/persona, en destino), bebidas, propinas del guía (orientativo 3 €/día) ni excursiones opcionales no contratadas (globo, Poblado Nubio, Noche Cairota).</p>")}
+      <div class="section-intro">Datos de la documentación definitiva de la reserva (DTR041251). Solo falta la hora del vuelo interno Asuán → El Cairo.</div>
+      {card("✈️ Vuelos · Nile Air", f'<div class="flights">{vuelos}</div><p class="muted">Localizador: <b>DTR041251</b> · 4 adultos · 2 habitaciones dobles · Equipaje por persona: 1 × 20 kg facturado + 1 × 5 kg de mano · Los vuelos no son reembolsables y los horarios pueden cambiar a última hora.</p>')}
+      {card("🚢 M/S Kahila · crucero por el Nilo · 4 noches", "<p><b>Del 7 al 11 de noviembre</b>, Luxor → Asuán, pensión completa (categoría D).</p><p>Motonave de 5★ locales con 72 camarotes (68 dobles de 22 m² y 4 suites) con ventanal panorámico, aire acondicionado, caja fuerte, minibar y hervidor. Restaurante en la cubierta inferior, salón-bar panorámico con biblioteca, piscina y solárium en la cubierta superior, boutique, sala de masajes, lavandería y wifi de pago. Bebidas no incluidas: se cargan al camarote y se liquidan al desembarcar (efectivo o tarjeta).</p><p class='muted'>Pendiente: número de camarote y teléfono de recepción (se anotan al embarcar).</p>", P["crucero_nilo"][0], "Confirmado")}
+      {card("🏨 JW Marriott Hotel Cairo · 3 noches", "<p><b>Del 11 al 14 de noviembre</b>, alojamiento y desayuno (categoría D).</p><p><b>Dirección:</b> Ring Road, Mirage City, New Cairo, Cairo 11757.<br><b>Teléfono:</b> <a href='tel:+20224115588'>+20 2 2411 5588</a></p><p>Resort de 5★ junto al aeropuerto (3 km, 10–15 min): piscinas exterior e interior, playa artificial con parque acuático, spa Mandara, campo de golf de 18 hoyos, gimnasio y diez restaurantes (libanés, italiano, asiático, steakhouse). A 5 min del centro comercial Cairo Festival City. Lejos del centro histórico (45–60 min de Guiza o Khan el-Khalili), así que para salir por libre lo práctico es Uber.</p><a class='pill map' href='https://www.google.com/maps/search/?api=1&query=JW+Marriott+Hotel+Cairo+Mirage+City' target='_blank' rel='noopener'>📍 Google Maps</a>", P["hoteles_cairo"][1], "Confirmado")}
+      {card("🎟️ Excursiones contratadas y opcionales", "<p><b>Contratadas para los 4</b> (ya pagadas): Día completo en El Cairo con Saqqara (día 7) · Abu Simbel en bus (día 4) · Gran Museo Egipcio con almuerzo (día 6).</p><p><b>Incluidas en el viaje:</b> Guiza y la Esfinge; en el crucero, Karnak, Luxor, Valle de los Reyes, Hatshepsut, Colosos de Memnón, Edfú, Kom Ombo, Philae y paseo en faluca.</p><p><b>Opcionales no contratadas</b> (se deciden y pagan con el guía): paseo en globo en Luxor (día 2) · poblado nubio en Asuán (día 4) · posibles opcionales en Asuán la mañana del día 5 según el vuelo · Noche Cairota (día 6).</p>")}
+      {card("💳 Pagos pendientes en destino", "<p>• Visado: <b>36 USD por persona</b> en el aeropuerto de Luxor.<br>• Cuota de servicios, propinas generales y tasas: <b>75 € por persona</b>.<br>• Propina del guía: recomendada 3 € por persona y día, mínimo 20 € por la semana.<br>• Bebidas a bordo y en restaurantes, y excursiones opcionales que contratéis.</p><p class='muted'>Precio del viaje ya pagado: 6.140 € para 4 personas, incluidas las tres excursiones contratadas y el seguro básico de viaje.</p>")}
     </div></div>"""
 
 def sec_info():
@@ -131,9 +132,9 @@ def sec_info():
       <div class="section-intro">Teléfonos útiles. Guárdalos también en el móvil antes de salir.</div>
       {emg}
       {card("🇪🇸 Embajada de España en El Cairo", "<p><b>Emergencias consulares</b> (accidentes, desapariciones, peligro): <a href='tel:+201231183783'>+20 12 31 83 783</a></p><p>Centralita: <a href='tel:+20227353551'>+20 2 2735 3551</a> · 41 Ismail Mohamed St., Zamalek</p><p class='muted'>El teléfono de emergencia es solo para asuntos graves.</p>")}
-      {card("🧳 Guía y agencia local", "<p>Nombre y teléfono del guía de habla hispana: <b>pendiente</b> (lo facilita Dynamic Tours antes de la salida).</p>", badge="Por rellenar")}
-      {card("🛡️ Seguro de viaje", "<p>Compañía, número de póliza y teléfono de asistencia 24 h: <b>pendiente</b>. Es lo primero que hay que tener a mano ante una urgencia médica.</p>", badge="Por rellenar")}
-      {card("✈️ Agencia · Dynamic Tours / Viajes Carrefour", "<p>Tel.: <a href='tel:+34915521443'>+34 91 552 14 43</a><br>Email: es.viajes.sansebastianreyes@carrefour.com<br>Localizador: <b>DTP157933</b></p>")}
+      {card("🧳 Receptivo en Egipto · Vamos Travel", "<p><b>Teléfono de urgencia 24 h:</b> <a href='tel:+201282149499'>+20 128 214 9499</a><br>30 Old Hadayek Al Ahram St., Flat 1, Giza.</p><p class='muted'>Es la agencia local que organiza traslados, guía y excursiones. El nombre y móvil del guía se añadirán cuando lo conozcáis el día 1.</p>")}
+      {card("🛡️ Seguro de viaje · AXA", "<p><b>Asistencia 24 h / 365 días:</b> <a href='tel:+34934968333'>+34 93 496 83 33</a><br><b>Póliza nº 9422001867</b>, contratada por Dynamic Tours.</p><p>Al llamar hay que indicar el nombre del asegurado, el número de póliza, dónde estáis y un teléfono de contacto. Coberturas principales: gastos médicos en el extranjero hasta 3.000 €, repatriación incluida, prolongación de estancia hasta 500 €, demora de equipaje 100 €, robo o daños al equipaje 300 €.</p><p class='muted'>Condiciones completas: dynamic-tours.com/doc/seguros/dynamic-tours-seguro-inclusion-axa.pdf</p>")}
+      {card("✈️ Agencia · Dynamic Tours / Viajes Carrefour", "<p><b>Urgencias Dynamic Tours 24 h:</b> <a href='tel:+34690125031'>+34 690 125 031</a><br>Dynamic Tours: <a href='tel:+34915521443'>+34 91 552 14 43</a> · reservas@dynamic-tours.com<br>Viajes Carrefour S.S. de los Reyes: <a href='tel:+34914906818'>+34 91 490 68 18</a> · es.viajes.sansebastianreyes@carrefour.com<br>Localizador: <b>DTR041251</b></p>")}
       {card("🕐 Datos útiles", "<p>• Hora: GMT+2 todo el año → 1 h más que en España en noviembre.<br>• Prefijo: +20. Para llamar a España desde Egipto: +34.<br>• Electricidad: 220 V, enchufe europeo (C/F). No hace falta adaptador.<br>• Fin de semana: viernes y sábado.<br>• Moneda: libra egipcia (EGP). Ver pestaña Guía práctica.</p>")}
     </div></div>"""
 
@@ -266,7 +267,7 @@ HTML = f"""<!DOCTYPE html>
 </head>
 <body>
 <div class="app-header">
-  <div class="eyebrow">Dynamic Tours · DTP157933</div>
+  <div class="eyebrow">Dynamic Tours · Reserva DTR041251</div>
   <div class="app-title">Maravillas del Nilo</div>
   <div class="app-sub">El Cairo · Crucero Luxor–Asuán · Abu Simbel · 4 viajeros</div>
   <div class="locator"><span>07 → 14 nov 2026</span><span>8 días / 7 noches</span><span>funciona sin conexión</span></div>

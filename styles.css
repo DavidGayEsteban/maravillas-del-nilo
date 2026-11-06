@@ -56,6 +56,7 @@ a{color:var(--nile-deep);}
 .stop{position:relative;margin-bottom:16px;}
 .stop::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--faience);z-index:2;}
 .stop.optional::before{border-color:var(--gold);}
+.stop-tag.pago,.stop-tag.libre{background:#e4f1ef;color:var(--faience);}
 .stop-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;box-shadow:var(--shadow);overflow:hidden;}
 .stop-photo{margin:-13px -14px 0;}
 .stop-photo img{width:100%;object-fit:cover;display:block;}

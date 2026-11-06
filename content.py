@@ -11,17 +11,19 @@ def stop(time, name, desc, tag=None, included=True, curio=None, mapq=None, nearb
 def build_days(P):
     return [
     dict(theme="flight", kicker="Día 1 · Sáb 07 nov", title="España → Luxor", city="Luxor",
-         date="Presentación en Barajas 3 h antes · Noche a bordo del crucero",
+         date="Vuelo Nile Air NP6632 · Presentación en Barajas T1 a las 10:50 · Noche a bordo del crucero Kahila",
          stops=[
-        stop("11:25", "Aeropuerto Madrid-Barajas", "Facturación y presentación del grupo. El guía de habla hispana os recibe en destino.", tag="salida",
-             tips=["Pasaporte con al menos 6 meses de validez.", "Lleva 30 € por persona en efectivo para el visado a la llegada.", "Un jersey ligero: en el avión y en el barco de noche refresca."]),
-        stop("14:25", "Vuelo MAD → LXR", "Vuelo directo a Luxor, unas 5 h. Egipto va 1 h por delante de España en noviembre.", tag="vuelo",
+        stop("10:50", "Aeropuerto Madrid-Barajas, Terminal 1", "Presentación 3 h antes de la salida. Facturación del vuelo Nile Air NP6632: 1 maleta de 20 kg facturada y 1 de mano de 5 kg por persona.", tag="salida",
+             tips=["Pasaporte con al menos 6 meses de validez.", "Lleva en efectivo los pagos en destino: visado (36 USD por persona, mejor en dólares) y cuota de servicios (75 € por persona). Ver la parada «Pagos en destino».", "Equipaje de mano solo 5 kg: pesa la mochila en casa.", "Un jersey ligero: en el avión y en el barco de noche refresca."]),
+        stop("13:50", "Vuelo NP6632 Madrid → Luxor", "Nile Air, vuelo directo de unas 5 h. Aterrizaje previsto a las 19:50 hora local (Egipto va 1 h por delante de España en noviembre). La agencia avisa de que los horarios pueden cambiar a última hora.", tag="vuelo",
              tips=["Rellena en el avión la tarjeta de llegada si la reparten.", "Pon el móvil en hora egipcia al aterrizar (GMT+2)."]),
-        stop("20:25", "Llegada a Luxor", "Visado a la llegada (30 €/persona, en efectivo), control de pasaportes y traslado al barco.", tag="llegada",
-             curio="El visado se compra en un mostrador bancario <b>antes</b> del control de pasaportes: es una pegatina que se pega en el pasaporte. Ten los 30 € (o 25 $) exactos a mano.",
+        stop("19:50", "Llegada a Luxor (T1)", "Visado a la llegada, control de pasaportes, recogida de maletas y encuentro con el guía de habla hispana. Traslado al barco (el aeropuerto está a unos 15 min del muelle).", tag="llegada",
+             curio="El visado se compra en un mostrador bancario <b>antes</b> del control de pasaportes: es una pegatina que se pega en el pasaporte. Cuesta <b>36 USD por persona</b>; ten los dólares a mano. El visado electrónico previo (Visa On Arrival Egypt) solo aplica a quienes llegan por El Cairo; vosotros entráis por Luxor, así que se hace allí.",
              mapq="Aeropuerto Internacional de Luxor", photos=P["luxor_ciudad"] + [P["luxor_temple"][0], P["karnak"][2]],
              more="""<b>Luxor</b>, la antigua <b>Tebas</b>, fue durante siglos la capital religiosa (y a menudo política) del Imperio Nuevo (c. 1550–1070 a.C.), cuando Egipto alcanzó su máxima extensión. Hoy es una ciudad de unos 500.000 habitantes a 660 km al sur de El Cairo. Su nombre árabe, <i>al-Uqsur</i> («los palacios»), lo pusieron los conquistadores árabes al ver sus templos monumentales.<br><br>Los egipcios la llamaban <b>Waset</b>, ciudad del dios Amón. La orilla <b>este</b> (donde sale el sol) era la ciudad de los vivos: Karnak y el templo de Luxor. La orilla <b>oeste</b> (donde se pone) era la de los muertos: el Valle de los Reyes, el de las Reinas y los templos funerarios. Esa lógica solar organiza toda la visita del día 2.<br><br>Homero ya la llamó «Tebas de las cien puertas» en la Ilíada. Ningún otro lugar del planeta reúne tantos monumentos faraónicos de primer nivel en tan poco espacio: se calcula que alberga cerca de un tercio de los monumentos antiguos del mundo."""),
-        stop("~21:30", "Embarque en el crucero", "Si el embarque es después de las 21:00, la cena a bordo es fría (sándwiches o plato frío en el camarote). Noche amarrados en Luxor.", tag="alojamiento",
+        stop("~21:00", "Pagos en destino: visado y cuota de servicios", "El guía suele recoger el primer día la <b>cuota de servicios, propinas generales y tasas: 75 € por persona</b> (no incluida en el precio). Cubre las propinas de maleteros, conductores, barco y restaurantes durante todo el viaje. Aparte queda la propina del guía: la agencia recomienda 3 € por persona y día, mínimo 20 € por la semana, que se entrega al final.", tag="pago",
+             tips=["Lleva los 75 € por persona en billetes (4 personas = 300 €).", "Visado: 36 USD por persona = 144 USD para los cuatro; en dólares es más sencillo que en euros.", "Para la propina del guía reserva 20–25 € por persona para el último día."]),
+        stop("~21:30", "Embarque en el crucero M/S Kahila", "Si el embarque es después de las 21:00, la cena a bordo es fría (sándwiches o plato frío en el camarote). Noche amarrados en Luxor.", tag="alojamiento",
              photos=P["crucero_nilo"] + [P["aswan"][2]],
              curio="El barco navega mientras dormís: es normal despertarse el día 2 ya en movimiento. Los barcos del Nilo amarran unos junto a otros, así que a veces se cruza por el vestíbulo de dos o tres barcos vecinos para llegar al vuestro.",
              tips=["Pide en recepción el horario de desayuno y de las excursiones del día siguiente.", "Cambia algo de dinero a libras egipcias en recepción si no lo hiciste en el aeropuerto.", "Hay toma de corriente europea en los camarotes (220 V, enchufe tipo C/F)."]),
@@ -30,8 +32,9 @@ def build_days(P):
     dict(theme="karnak", kicker="Día 2 · Dom 08 nov", title="Luxor: Karnak y el Valle de los Reyes", city="Luxor",
          date="Pensión completa a bordo · Orilla este por la mañana, orilla oeste por la tarde",
          stops=[
-        stop("Amanecer", "Paseo en globo (opcional, no contratado)", "Vuelo en globo sobre la orilla oeste al amanecer, unos 45 min en el aire. Se contrata y paga en destino si os animáis.", tag="opcional", included=False,
-             tips=["Se madruga mucho (recogida 4:30–5:00).", "Precio orientativo 80–120 € por persona; se cancela si hay viento."]),
+        stop("~04:30–07:30", "Paseo en globo (opcional, no contratado)", "Recogida en el barco una hora antes del amanecer (amanece hacia las 6:10), cruce en lancha a la orilla oeste, vuelo de 45–60 min sobre el Valle de los Reyes, Hatshepsut, Medinet Habu y los campos de caña, y vuelta al barco para desayunar antes de la visita. Unas 3 h en total. Se decide y paga con el guía el día 1.", tag="opcional", included=False,
+             curio="Los globos de Luxor son de los más baratos del mundo; en Capadocia la misma experiencia cuesta el triple. La aviación civil egipcia autoriza o cancela cada vuelo al amanecer según el viento: si no se vuela, se devuelve el dinero.",
+             tips=["Precio orientativo 90–120 € por persona.", "Abrigo: a esa hora y en el aire hace fresco.", "Sujeta bien el móvil: no se puede recuperar nada que caiga de la cesta."]),
         stop("Desayuno", "A bordo", "Desayuno buffet en el barco antes de salir."),
         stop("Mañana", "Templo de Karnak", "El mayor complejo religioso jamás construido. Recorreréis la avenida de esfinges, el primer pilono, el gran patio, la Sala Hipóstila (134 columnas), los obeliscos de Hatshepsut y el Lago Sagrado.", tag="visita incluida",
              curio="Karnak se construyó durante más de 2.000 años: unos 30 faraones fueron añadiendo pilonos, patios y capillas. El obelisco de Hatshepsut, de 30 m y 320 toneladas de granito rosa, se talló en una sola pieza en Asuán y se trajo río abajo en barcaza.",
@@ -82,9 +85,9 @@ def build_days(P):
     ]),
 
     dict(theme="abusimbel", kicker="Día 4 · Mar 10 nov", title="Abu Simbel, Philae y faluca", city="Asuán",
-         date="Pensión completa a bordo · Salida de madrugada",
+         date="Pensión completa a bordo · Abu Simbel contratado (salida de madrugada) · Philae y faluca incluidos",
          stops=[
-        stop("~04:00", "Salida hacia Abu Simbel (contratada)", "Unas 3 h de bus por el desierto hasta la frontera con Sudán, en convoy. Desayuno para llevar del barco. Unas 2 h en el sitio y regreso.", tag="contratado", included=False,
+        stop("~04:00–13:00", "Abu Simbel en bus (contratada)", "Salida del barco hacia las 4:00 (el guía confirma la hora exacta la noche anterior) con desayuno para llevar. Unas 3 h de autobús por el desierto hasta la frontera con Sudán, en convoy; unas 2 h en los templos y regreso al barco hacia las 13:00. En el programa figura como «mañana libre a su disposición» porque es una excursión aparte, pero vosotros la tenéis contratada.", tag="contratado", included=False,
              curio="Los dos templos se cortaron en 1.036 bloques de hasta 30 toneladas y se reconstruyeron 65 m más arriba y 210 m más atrás entre 1964 y 1968, para salvarlos del lago Nasser. Más de 50 países financiaron la operación de la UNESCO. La montaña que ves es artificial: una cúpula de hormigón recubierta de roca.",
              mapq="Templos de Abu Simbel", photos=P["abu_simbel"],
              tips=["Pasaporte obligatorio: hay controles militares en la carretera.", "Hay baños y cafetería en la entrada; lleva efectivo.", "Las fotos con móvil dentro están permitidas sin flash."],
@@ -100,21 +103,27 @@ def build_days(P):
              mapq="Aswan Corniche", nearby="Poblado nubio (opcional, no contratado) · Isla Elefantina y su nilómetro · Obelisco inacabado · Presa alta",
              photos=P["felucca"] + [P["aswan"][0], P["aswan"][2]],
              more="""<b>Asuán</b> (la antigua <i>Swenett</i>, «mercado») es la frontera histórica de Egipto: aquí está la Primera Catarata, los rápidos que impedían navegar más al sur. Era la puerta de Nubia y del comercio de oro, marfil, ébano e incienso. De sus canteras de granito salieron los obeliscos, las estatuas colosales y los revestimientos de las pirámides; el <b>obelisco inacabado</b> (42 m, 1.200 toneladas, abandonado por una grieta) sigue en la cantera.<br><br>Con unos 400.000 habitantes, es la ciudad más relajada del viaje, con fuerte presencia de la cultura <b>nubia</b>: casas de colores, su propia lengua y una música inconfundible. Desde el barco se ve, en la colina de la orilla oeste, el mausoleo del Aga Khan y las tumbas de los nobles. Asuán es también famosa por su clima seco: Agatha Christie escribió <i>Muerte en el Nilo</i> alojada en el Old Cataract Hotel, en la Corniche."""),
+        stop("~17:30–20:00", "Poblado nubio de Gharb Soheil (opcional, no contratado)", "Tras la faluca, en lancha a motor por el Nilo (pasando junto a la isla Elefantina y las dunas de la orilla oeste) hasta el pueblo nubio de Gharb Soheil: casas pintadas de azul, naranja y verde, té de hibisco en una casa nubia, pequeños cocodrilos domésticos, tatuajes de henna y mercadillo de especias y artesanía. Unas 2–3 h en total. Se contrata con el guía a bordo.", tag="opcional", included=False,
+             curio="Los nubios son el pueblo del sur del Nilo, con lengua propia y una cultura distinta a la árabe. Al construirse la presa alta, 50.000 nubios perdieron sus aldeas bajo el lago Nasser y fueron reasentados; Gharb Soheil es uno de los pueblos que mantiene vivas sus casas de colores y su música.",
+             mapq="Gharb Soheil, Aswan",
+             tips=["Precio orientativo 25–40 € por persona, según lo que incluya (barca, té, cena).", "Lleva billetes pequeños: el mercadillo es de regateo y las fotos con cocodrilo son con propina.", "Si no la contratáis, la tarde queda libre en el barco: la cubierta al atardecer sobre Asuán es de lo mejor del crucero."]),
     ]),
 
     dict(theme="transit", kicker="Día 5 · Mié 11 nov", title="Asuán → El Cairo", city="El Cairo",
-         date="Desayuno a bordo · Vuelo doméstico · Alojamiento y desayuno en El Cairo",
+         date="Desayuno a bordo · Tiempo libre en Asuán según la hora del vuelo · Vuelo a El Cairo · Hotel JW Marriott",
          stops=[
-        stop("Mañana", "Desembarque y tiempo libre en Asuán", "Última mañana en el barco. Si hay tiempo, un paseo por la Corniche o el zoco de Asuán, muy auténtico (especias, karkadé, cestería nubia).", photos=P["aswan"],
-             tips=["Deja propina para el personal del barco en el sobre que suelen facilitar (orientativo 5 €/persona/día entre todos).", "Pide una bolsa de karkadé (flor de hibisco) en el zoco: es la bebida de Asuán."]),
-        stop("Por confirmar", "Traslado al aeropuerto de Asuán (Daraw)", "El aeropuerto está a unos 25 km al sur de la ciudad, junto a la presa alta.", tag="traslado", mapq="Aeropuerto de Asuán"),
-        stop("Por confirmar", "Vuelo Asuán → El Cairo", "Vuelo doméstico de 1 h 25 min. Si vais en el lado izquierdo del avión, se ve el Nilo serpenteando casi todo el trayecto.", tag="vuelo"),
-        stop("Tarde-noche", "Traslado y check-in en el hotel", "Fin del crucero. Comienzan 3 noches en El Cairo.", tag="alojamiento", photos=P["skyline_cairo"] + P["hoteles_cairo"],
+        stop("Mañana", "Desembarque y tiempo libre en Asuán", "Según el programa, «tiempo libre para excursiones opcionales, en función del horario del vuelo». Hasta que la agencia confirme la hora del vuelo no se sabe cuánto margen habrá. Si hay mañana libre, estas son las opciones habituales (ninguna contratada): el guía puede ofrecer una excursión opcional a la presa alta y al obelisco inacabado (unas 2–3 h), o por libre un paseo por la Corniche y el zoco de Asuán (a 10 min del muelle), muy auténtico: especias, karkadé, cestería y pañuelos nubios.", photos=P["aswan"],
+             nearby="Obelisco inacabado (cantera, 10 min en taxi) · Presa alta y lago Nasser (20 min) · Museo Nubio (muy recomendable, 15 min) · Jardín botánico de la isla Kitchener (en barca)",
+             tips=["La propina del personal del barco va cubierta por la cuota de servicios de 75 €; no hace falta sobre aparte salvo que queráis.", "Pide una bolsa de karkadé (flor de hibisco) en el zoco: es la bebida de Asuán.", "Dejad las maletas hechas antes del desayuno: el barco pide desalojar los camarotes temprano aunque el vuelo sea por la tarde."]),
+        stop("Por confirmar", "Traslado al aeropuerto de Asuán (Daraw)", "El aeropuerto está a unos 25 km al sur de la ciudad, junto a la presa alta (30–40 min). La documentación de la agencia aún no trae la hora del vuelo interno; se confirmará días antes de la salida.", tag="traslado", mapq="Aeropuerto de Asuán"),
+        stop("Por confirmar", "Vuelo Asuán → El Cairo (llegada T2)", "Vuelo doméstico de 1 h 25 min, con la misma franquicia de equipaje (20 kg + 5 kg). Si vais en el lado izquierdo del avión, se ve el Nilo serpenteando casi todo el trayecto.", tag="vuelo"),
+        stop("Tarde-noche", "Check-in en el JW Marriott Hotel Cairo", "Fin del crucero. Tres noches en alojamiento y desayuno en el JW Marriott, en Mirage City (New Cairo), a solo 3 km del aeropuerto. Tel. +20 2 2411 5588. Resto del día libre: el hotel tiene piscinas, playa artificial, spa, campo de golf y diez restaurantes, y el centro comercial Cairo Festival City está a 5 min.", tag="alojamiento", mapq="JW Marriott Hotel Cairo, Mirage City", photos=P["skyline_cairo"] + P["hoteles_cairo"],
+             tips=["Está lejos del centro (45–60 min de Guiza o Khan el-Khalili con tráfico): para salir por libre, Uber funciona bien y es barato.", "Las fotos de hoteles de la guía son orientativas; las sustituimos cuando tengamos las del JW Marriott."],
              more="""<b>El Cairo</b> (<i>al-Qahira</i>, «la victoriosa») es la mayor ciudad de África y del mundo árabe: más de 22 millones de habitantes en el área metropolitana. La fundaron los fatimíes en el 969 junto a Fustat, la primera capital islámica de Egipto (641), que a su vez estaba junto a la fortaleza romana de Babilonia y a un paso de Menfis, la capital faraónica. Es decir: la misma esquina del delta lleva 5.000 años siendo el centro del país.<br><br>El tráfico es legendario (los semáforos son orientativos, se cruza con decisión y con los lugareños), el ruido constante y la hospitalidad enorme. Guiza, donde están las pirámides, es técnicamente otra ciudad en la orilla oeste, pero ya forma un continuo urbano. En noviembre el clima es ideal: 24–27 °C de día y fresco por la noche."""),
     ]),
 
     dict(theme="giza", kicker="Día 6 · Jue 12 nov", title="Guiza y el Gran Museo Egipcio", city="El Cairo",
-         date="Alojamiento y desayuno · Almuerzo incluido en la excursión al GEM",
+         date="Guiza incluida por la mañana · GEM contratado con almuerzo · Tarde libre · Noche Cairota opcional",
          stops=[
         stop("Mañana", "Pirámides de Guiza y la Esfinge", "La meseta de Guiza: las pirámides de Keops, Kefrén y Micerinos, las pirámides de las reinas, el mirador panorámico y la Gran Esfinge con su templo del valle.", tag="visita incluida",
              curio="La Gran Pirámide fue el edificio más alto del mundo durante 3.800 años (146 m originales, 138 hoy sin el revestimiento). Tiene 2,3 millones de bloques; se calcula que se colocó uno cada 2–3 minutos durante 20 años. Está orientada a los puntos cardinales con un error menor de 0,05º.",
@@ -122,16 +131,22 @@ def build_days(P):
              photos=P["giza"] + P["portada_egipto"],
              tips=["Entrar dentro de la Gran Pirámide cuesta aparte y es un pasillo estrecho y caluroso; la de Kefrén es más barata y parecida.", "Camelleros y vendedores son insistentes: acuerda el precio y la duración antes de subirte a nada.", "Mejor foto de conjunto: desde el mirador panorámico, de camino a la Esfinge."],
              more="""<b>Lo que vas a ver.</b> <b>Keops</b> (c. 2560 a.C.), la mayor, con la entrada de los ladrones abierta por el califa al-Mamún en el siglo IX. <b>Kefrén</b>, que parece más alta por estar en terreno elevado y conserva en la cúspide el revestimiento de caliza blanca que cubría todas. <b>Micerinos</b>, la pequeña, con el revestimiento inferior de granito rojo de Asuán. Y la <b>Gran Esfinge</b>, 73 m de largo tallados en un afloramiento de roca, con el rostro probable de Kefrén y entre las patas la Estela del Sueño de Thutmose IV. Junto a ella, el templo del valle de Kefrén, con enormes bloques de granito.<br><br><b>Quién las construyó.</b> No esclavos: el poblado de trabajadores excavado al sur de la meseta muestra cuadrillas organizadas y bien alimentadas (se han contado restos de miles de reses), con panaderías, cervecerías y atención médica. Trabajaban por turnos unas 20.000 personas, muchas campesinos durante la inundación anual, cuando no podían cultivar. Los equipos dejaron pintados sus nombres: «Los amigos de Keops», «Los borrachos de Micerinos».<br><br><b>Cómo.</b> Rampas, trineos sobre arena mojada (un relieve muestra a un hombre vertiendo agua delante del trineo) y palancas. Los bloques de caliza son locales; el granito del interior vino de Asuán en barcaza, 900 km río abajo. Un papiro hallado en 2013 (el diario del inspector Merer) describe el transporte de bloques de caliza fina desde Tura por canales hasta el pie de la pirámide.<br><br><b>La nariz de la Esfinge.</b> No fueron los soldados de Napoleón: los dibujos de 1737 ya la muestran sin nariz. Un historiador árabe del siglo XV atribuye el daño a un sufí que la mutiló en 1378 por considerarla un ídolo."""),
-        stop("Mediodía", "Almuerzo en restaurante local", "Incluido en la excursión del Gran Museo Egipcio.", tag="contratado", included=False, photos=[P["comida_tipica"][1]]),
+        stop("Mediodía", "Almuerzo en restaurante local", "Incluido en la excursión contratada del Gran Museo Egipcio. El programa prevé regreso al hotel tras Guiza y tarde libre; al tener contratado el GEM, lo habitual es enlazar Guiza, almuerzo y museo seguidos (están a 2 km). El guía confirmará el orden exacto.", tag="contratado", included=False, photos=[P["comida_tipica"][1]]),
         stop("Tarde", "Gran Museo Egipcio (GEM)", "El mayor museo del mundo dedicado a una sola civilización, a 2 km de las pirámides. Más de 100.000 piezas y, por primera vez, la colección completa de Tutankamón.", tag="contratado", included=False,
              curio="El coloso de Ramsés II de 11 m y 83 toneladas que preside el atrio estuvo 50 años en la plaza de la estación de El Cairo, entre el tráfico, hasta que se trasladó en 2006 en una operación de 10 horas seguida en directo por televisión.",
              mapq="Gran Museo Egipcio, Guiza", photos=P["gem"],
              tips=["Las galerías de Tutankamón son el plato fuerte: reserva al menos 1,5 h solo para ellas.", "La Barca Solar de Keops (4.500 años, 43 m, de cedro del Líbano) tiene su propio pabellón.", "Desde la gran escalinata se ven las pirámides enmarcadas en la cristalera."],
              more="""<b>Lo que vas a ver.</b> El atrio con el coloso de Ramsés II; la <b>Gran Escalinata</b>, con 60 estatuas monumentales ordenadas cronológicamente que suben hacia una ventana con las pirámides al fondo; las doce galerías principales organizadas por época y tema (sociedad, realeza, creencias); y las dos galerías de <b>Tutankamón</b>, con los 5.398 objetos de su tumba expuestos juntos por primera vez: la máscara de oro, los tres sarcófagos, los tronos, los carros, las capillas doradas, las sandalias, hasta la ropa interior.<br><br><b>El edificio.</b> Diseñado por el estudio irlandés Heneghan Peng, ganador de un concurso con 1.557 propuestas. La fachada de alabastro translúcido y vidrio tiene forma de cuña cuyos bordes apuntan exactamente a las cúspides de las pirámides de Keops y Micerinos. Más de 20 años de obras y unos 1.000 millones de dólares, financiados en gran parte por Japón. Se inauguró oficialmente en 2025.<br><br><b>Y el museo antiguo.</b> El viejo Museo Egipcio de la plaza Tahrir (1902), el edificio rosa, sigue abierto con parte de la colección; muchas momias reales se trasladaron al Museo Nacional de la Civilización Egipcia (NMEC) en 2021 en el «Desfile Dorado de los Faraones»."""),
+        stop("~18:00", "Tarde libre en el hotel", "Tiempo para descansar en la piscina o el spa del JW Marriott, o acercarse a Cairo Festival City (centro comercial a 5 min, con restaurantes y cafés). Si tenéis energía, la calle al-Muizz y Khan el-Khalili de noche están a unos 45 min en coche, pero el día 7 los visitáis con el guía.", tag="libre",
+             nearby="Cairo Festival City Mall (5 min) · Museo Nacional de la Civilización Egipcia, NMEC, con las momias reales (40 min) · Torre de El Cairo al atardecer (45 min)"),
+        stop("~19:00–23:00", "Noche Cairota (opcional, no contratada)", "Paseo nocturno por la zona islámica de El Cairo (calle al-Muizz y Khan el-Khalili iluminados) con cena en restaurante local. Se contrata con el guía. Según el operador, puede incluir espectáculo de danza tanura o folclore durante la cena.", tag="opcional", included=False,
+             curio="La calle al-Muizz, iluminada de noche, concentra casi un kilómetro de mezquitas, madrasas y palacios mamelucos; es cuando el Cairo medieval está más vivo, con familias, cafés y vendedores hasta pasada la medianoche.",
+             mapq="Al-Muizz Street, El Cairo",
+             tips=["Precio orientativo 40–60 € por persona con cena.", "Como el día 7 visitáis Khan el-Khalili de día con el guía, valorad si os compensa repetirlo de noche o preferís descansar: el día 7 es largo."]),
     ]),
 
     dict(theme="islamic", kicker="Día 7 · Vie 13 nov", title="Ciudadela, El Cairo copto, Khan el-Khalili y Saqqara", city="El Cairo",
-         date="Excursión de día completo (contratada) con almuerzo",
+         date="Día libre según el programa · Excursión de día completo contratada (Ciudadela, Barrio Copto, Khan el-Khalili y Saqqara) con almuerzo",
          stops=[
         stop("Mañana", "Ciudadela de Saladino", "Fortaleza medieval sobre el espolón de Muqattam, sede del poder en Egipto durante 700 años. Vistas sobre toda la ciudad y, si está despejado, hasta las pirámides.", tag="contratado", included=False,
              curio="Saladino la empezó en 1176 con piedra de las pequeñas pirámides de Guiza, usadas como cantera. Dentro, en 1811, Muhammad Ali invitó a un banquete a 470 jefes mamelucos y los hizo masacrar a la salida, en el pasadizo que baja a la puerta: así acabó con 600 años de poder mameluco.",
@@ -162,13 +177,13 @@ def build_days(P):
     ]),
 
     dict(theme="farewell", kicker="Día 8 · Sáb 14 nov", title="El Cairo → España", city="El Cairo",
-         date="Desayuno (picnic si la salida es muy temprana) · Traslado al aeropuerto",
+         date="Vuelo Nile Air NP6631 a las 08:45 · Traslado muy temprano · Desayuno para llevar",
          stops=[
-        stop("~05:30", "Desayuno y check-out", "El hotel suele preparar un desayuno para llevar si el traslado es antes de la hora del buffet.",
+        stop("~04:45", "Check-out y desayuno para llevar", "Presentación en el aeropuerto a las 05:45 (3 h antes). El hotel prepara un desayuno para llevar si lo pedís la noche anterior en recepción.",
              tips=["Deja las libras egipcias que te sobren para propinas: fuera de Egipto no se cambian.", "El pago de la tasa de salida no existe; está incluida en el billete."]),
-        stop("~06:30", "Traslado al aeropuerto de El Cairo", "Unos 45 min desde el centro (más si hay tráfico). Presentación 3 h antes del vuelo.", tag="traslado", photos=P["aeropuerto_cairo"] + [P["skyline_cairo"][2]], mapq="Aeropuerto Internacional de El Cairo",
+        stop("~05:15", "Traslado al aeropuerto de El Cairo, Terminal 1", "El JW Marriott está a 3 km del aeropuerto: 10–15 min. Presentación a las 05:45 para el vuelo de las 08:45.", tag="traslado", photos=P["aeropuerto_cairo"] + [P["skyline_cairo"][2]], mapq="Aeropuerto Internacional de El Cairo",
              tips=["En Cairo hay doble control de seguridad: uno en la puerta de la terminal y otro tras facturar.", "Los líquidos y las compras de papiro/plata pasan sin problema; las antigüedades (reales) están prohibidas."]),
-        stop("09:30", "Vuelo CAI → MAD", "Unas 5 h 20 min. Llegada prevista a Madrid a las 13:50. Fin del viaje.", tag="vuelo"),
+        stop("08:45", "Vuelo NP6631 El Cairo → Madrid", "Nile Air, directo, unas 5 h 15 min. Llegada prevista a Barajas T1 a las 13:00. Fin del viaje.", tag="vuelo"),
     ]),
     ]
 
@@ -322,14 +337,15 @@ PHARAOHS = [
 PRACTICAL = [
     ("💶 Dinero", [
         "Moneda: libra egipcia (EGP). 1 € ≈ 55–60 EGP (consulta el cambio del día antes de salir).",
+        "Pagos fijos en destino, en efectivo: visado 36 USD por persona (en el aeropuerto de Luxor) y cuota de servicios 75 € por persona. Para los cuatro: 144 USD + 300 €.",
         "Lleva euros en billetes pequeños (5, 10, 20): sirven para visado, propinas y compras; en muchos sitios los aceptan directamente.",
         "Cambia poco a poco: en recepción del barco/hotel o cajeros (ATM) en Luxor y El Cairo. Evita cambiar mucho: la libra no se recompra fuera.",
         "Tarjeta: útil en hoteles, GEM y tiendas grandes. En zocos, calesas, lanchas y baños, solo efectivo.",
         "Los precios de entradas a monumentos (ya incluidas en vuestro viaje) rondan 25–30 € cada una, por si queréis valorar extras: dentro de Keops ~20 €, Nefertari ~70 €, Seti I ~45 €.",
     ]),
     ("🤝 Propinas (baksheesh)", [
-        "Forman parte de la cultura y de los sueldos. Vuestro viaje incluye 75 €/persona de «cuota de servicios» que cubre propinas generales; aun así tendréis gestos pequeños a diario.",
-        "Orientación: guía 3–5 €/persona/día · conductor 1–2 € · cochero de calesa / barquero 20–50 EGP · baños 5–10 EGP · maleteros 20 EGP por maleta · personal del barco 5 €/persona/día (sobre común al final).",
+        "Forman parte de la cultura y de los sueldos. Vuestra reserva lleva una «cuota de servicios, propinas generales y tasas» de <b>75 € por persona, a pagar en destino</b> (normalmente al guía el primer día): cubre maleteros, conductores, barco y restaurantes. Aun así tendréis gestos pequeños a diario.",
+        "Propina del guía (no incluida en la cuota): la agencia recomienda <b>3 € por persona y día, mínimo 20 € por la semana</b>; se entrega el último día. Gestos sueltos: cochero de calesa o barquero 20–50 EGP · baños 5–10 EGP · vigilante de templo que te enseña algo 20 EGP.",
         "Lleva un bolsillo con billetes de 5, 10 y 20 EGP para no sacar la cartera cada vez.",
         "En los templos, los vigilantes se ofrecen a enseñarte un «rincón secreto» o a hacerte una foto: es a cambio de propina. Un «la, shukran» amable basta si no te interesa.",
     ]),
@@ -340,7 +356,8 @@ PRACTICAL = [
         "Sombrero, gafas de sol, protector solar alto, bálsamo labial. Pañuelo grande (sol, mezquitas, polvo).",
         "Botiquín: antidiarreico, probióticos, suero oral, analgésico, tiritas, repelente de mosquitos (Nilo al atardecer).",
         "Linterna del móvil para las tumbas, batería externa, adaptador no necesario (enchufe europeo tipo C/F, 220 V).",
-        "Fotocopia del pasaporte y seguro; el original lo pedirán a menudo (visado, barco, Abu Simbel).",
+        "Fotocopia del pasaporte y de la documentación de la reserva (localizador DTR041251); el original lo pedirán a menudo (visado, barco, Abu Simbel).",
+        "Equipaje: 1 maleta facturada de 20 kg y 1 bulto de mano de 5 kg por persona en los tres vuelos.",
     ]),
     ("🍽️ Comer y beber sin disgustos", [
         "Agua siempre embotellada y precintada, también para lavarse los dientes. Sin hielo fuera del barco/hotel.",
@@ -364,6 +381,7 @@ PRACTICAL = [
         "Esta guía funciona sin conexión; guárdala en el móvil.",
     ]),
     ("🚑 Salud y seguridad", [
+        "Seguro incluido: AXA, póliza 9422001867, asistencia 24 h +34 93 496 83 33 (ver pestaña Teléfonos). Cubre gastos médicos hasta 3.000 € y equipaje hasta 300 €; si queréis más cobertura, seguro ampliado por vuestra cuenta antes de salir.",
         "No hay vacunas obligatorias. Recomendadas al día: tétanos y hepatitis A. Consulta tu centro de vacunación internacional si tienes dudas.",
         "Las zonas turísticas del Nilo y El Cairo tienen presencia policial constante y son seguras; el mayor riesgo real es el tráfico. Cruza con los locales.",
         "La «venganza del faraón» (diarrea del viajero) es lo más habitual: hidratación, suero oral y antidiarreico. Si hay fiebre o dura más de 48 h, el médico del barco/hotel.",
@@ -451,7 +469,7 @@ VOCAB = [
 ]
 
 VUELOS = [
-    ("Ida", "Sáb 07 nov", "Madrid (MAD) → Luxor (LXR)", "14:25 → 20:25", "Vuelo directo · ~5 h"),
-    ("Interno", "Mié 11 nov", "Asuán (ASW) → El Cairo (CAI)", "horario por confirmar", "~1 h 25 min"),
-    ("Vuelta", "Sáb 14 nov", "El Cairo (CAI) → Madrid (MAD)", "09:30 → 13:50", "Vuelo directo · ~5 h 20 min"),
+    ("Ida", "Sáb 07 nov", "Madrid T1 (MAD) → Luxor T1 (LXR)", "13:50 → 19:50", "Nile Air NP6632 · directo · presentación 10:50"),
+    ("Interno", "Mié 11 nov", "Asuán/Daraw (ASW) → El Cairo T2 (CAI)", "hora por confirmar", "~1 h 25 min · la agencia la confirma días antes"),
+    ("Vuelta", "Sáb 14 nov", "El Cairo T1 (CAI) → Madrid T1 (MAD)", "08:45 → 13:00", "Nile Air NP6631 · directo · presentación 05:45"),
 ]
